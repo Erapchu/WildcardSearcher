@@ -1,9 +1,9 @@
-﻿<Application x:Class="WildcardSearcher.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WildcardSearcher"
-             StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         
-    </Application.Resources>
+﻿<Application
+    x:Class="WildcardSearcher.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WildcardSearcher"
+    Startup="Application_Startup"
+    ShutdownMode="OnLastWindowClose">
+    <Application.Resources />
 </Application>

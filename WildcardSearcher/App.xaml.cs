@@ -19,6 +19,19 @@ namespace WildcardSearcher
         private static IServiceProvider ConfigureServices()
         {
             var services = new ServiceCollection();
+
+            services.AddTransient<MainWindow>();
+            services.AddTransient<MainWindowViewModel>();
+
+            return services.BuildServiceProvider();
+        }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            InitializeComponent();
+
+            var mainWindow = Services.GetService<MainWindow>();
+            mainWindow.Show();
         }
     }
 }
