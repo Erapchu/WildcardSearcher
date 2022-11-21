@@ -2,7 +2,7 @@
 
 namespace WildcardSearcher.Interfaces
 {
-    interface IWildcardSearcher
+    public interface IWildcardSearcher
     {
         /// <summary>
         /// Add word to dictionary.
