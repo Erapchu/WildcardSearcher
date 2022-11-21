@@ -11,6 +11,7 @@
     Height="150"
     d:DataContext="{d:DesignData Type=vm:AddWordViewModel, IsDesignTimeCreatable=False}"
     WindowStartupLocation="CenterOwner"
+    FocusManager.FocusedElement="{Binding ElementName=WordTextBox}"
     mc:Ignorable="d">
     <Grid>
         <Grid>
@@ -19,6 +20,7 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <TextBox
+                x:Name="WordTextBox"
                 Margin="8"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center"
