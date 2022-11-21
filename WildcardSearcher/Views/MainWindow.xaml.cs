@@ -1,6 +1,7 @@
 ﻿using System.Windows;
+using WildcardSearcher.ViewModels;
 
-namespace WildcardSearcher
+namespace WildcardSearcher.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

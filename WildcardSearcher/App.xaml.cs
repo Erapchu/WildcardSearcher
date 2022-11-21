@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
+using WildcardSearcher.ViewModels;
+using WildcardSearcher.Views;
 
 namespace WildcardSearcher
 {
