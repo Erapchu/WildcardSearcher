@@ -18,6 +18,7 @@ namespace WildcardSearcher.Views
         public MainWindow(MainWindowViewModel mainWindowViewModel) : this()
         {
             ViewModel = mainWindowViewModel;
+            DataContext = mainWindowViewModel;
         }
     }
 }

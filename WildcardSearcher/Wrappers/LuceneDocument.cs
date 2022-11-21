@@ -13,7 +13,7 @@ namespace WildcardSearcher.Wrappers
         {
             Doc = new Document()
             {
-                (Word = new TextField("word", string.Empty, Field.Store.YES))
+                (Word = new TextField(WordField, string.Empty, Field.Store.YES))
             };
         }
     }
