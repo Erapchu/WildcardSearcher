@@ -26,6 +26,8 @@ namespace WildcardSearcher
 
             services.AddTransient<MainWindow>();
             services.AddTransient<MainWindowViewModel>();
+            services.AddTransient<AddWordWindow>();
+            services.AddTransient<AddWordViewModel>();
             services.AddSingleton<IWildcardSearcher, LuceneWildcardSearcher>();
 
             return services.BuildServiceProvider();

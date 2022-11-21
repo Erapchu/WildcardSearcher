@@ -8,6 +8,7 @@
     xmlns:vm="clr-namespace:WildcardSearcher.ViewModels"
     Title="MainWindow"
     Width="800"
+    WindowStartupLocation="CenterScreen"
     Height="450"
     d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel, IsDesignTimeCreatable=False}"
     mc:Ignorable="d">
@@ -21,7 +22,8 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
-            <TextBox HorizontalAlignment="Stretch" Text="{Binding Pattern, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Margin="8" HorizontalAlignment="Stretch" Text="{Binding Pattern, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Grid.Column="1" Content="Add new word" Command="{Binding AddNewWordCommand}"/>
         </Grid>
         <ListBox Grid.Row="1" ItemsSource="{Binding Items}" />
     </Grid>
