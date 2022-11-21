@@ -21,6 +21,7 @@ namespace WildcardSearcher.Services
             var directory = new RAMDirectory();
             var analyzer = new StandardAnalyzer(Lucene.Net.Util.LuceneVersion.LUCENE_48);
             _indexWriter = new IndexWriter(directory, new IndexWriterConfig(Lucene.Net.Util.LuceneVersion.LUCENE_48, analyzer));
+            _indexWriter.Commit(); // allows create segments files
             _searcherManager = new SearcherManager(directory, new SearcherFactory());
         }
 
