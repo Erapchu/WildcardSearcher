@@ -1,8 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
-using WildcardSearcher.Interfaces;
-using WildcardSearcher.Services;
+using WildcardSearcher.Extensions;
 using WildcardSearcher.ViewModels;
 using WildcardSearcher.Views;
 
@@ -28,7 +27,7 @@ namespace WildcardSearcher
             services.AddTransient<MainWindowViewModel>();
             services.AddTransient<AddWordWindow>();
             services.AddTransient<AddWordViewModel>();
-            services.AddSingleton<IWildcardSearcher, LuceneWildcardSearcher>();
+            services.RegisterWildcardSearcher();
 
             return services.BuildServiceProvider();
         }

@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using WildcardSearcher.Interfaces;
+using WildcardSearcher.Common.Interfaces;
 using WildcardSearcher.Views;
 
 namespace WildcardSearcher.ViewModels
