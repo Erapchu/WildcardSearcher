@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WildcardSearcher\WildcardSearcher.csproj" />
+    <ProjectReference Include="..\WildcardSearcher\WildcardSearcher.WPF.csproj" />
   </ItemGroup>
 
 </Project>
