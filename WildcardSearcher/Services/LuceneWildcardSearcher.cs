@@ -5,7 +5,7 @@ using Lucene.Net.Store;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using WildcardSearcher.Interfaces;
+using WildcardSearcher.Common.Interfaces;
 using WildcardSearcher.Wrappers;
 
 namespace WildcardSearcher.Services
@@ -38,6 +38,7 @@ namespace WildcardSearcher.Services
             IndexSearcher? indexSearcher = null;
             try
             {
+                _searcherManager.MaybeRefresh();
                 indexSearcher = _searcherManager.Acquire();
                 var query = new WildcardQuery(new Term(LuceneDocument.WordField, pattern));
                 var topDocs = indexSearcher.Search(query, int.MaxValue);
@@ -51,7 +52,6 @@ namespace WildcardSearcher.Services
                 if (indexSearcher != null)
                 {
                     _searcherManager.Release(indexSearcher);
-                    _searcherManager.MaybeRefresh();
                 }
             }
         }
