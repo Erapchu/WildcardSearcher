@@ -1,4 +1,5 @@
-﻿using Lucene.Net.Analysis.Standard;
+﻿using Lucene.Net.Analysis;
+using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Index;
 using Lucene.Net.Search;
 using Lucene.Net.Store;
@@ -10,19 +11,21 @@ using WildcardSearcher.Wrappers;
 
 namespace WildcardSearcher.Services
 {
-    internal class LuceneWildcardSearcher : IWildcardSearcher
+    internal class LuceneWildcardSearcher : IWildcardSearcher, IDisposable
     {
+        private readonly Directory _directory;
+        private readonly Analyzer _analyzer;
         private readonly IndexWriter _indexWriter;
-        private readonly Lazy<LuceneDocument> _documentWrapperCache = new(() => new LuceneDocument());
         private readonly SearcherManager _searcherManager;
+        private readonly Lazy<LuceneDocument> _documentWrapperCache = new(() => new LuceneDocument());
 
         public LuceneWildcardSearcher()
         {
-            var directory = new RAMDirectory();
-            var analyzer = new StandardAnalyzer(Lucene.Net.Util.LuceneVersion.LUCENE_48);
-            _indexWriter = new IndexWriter(directory, new IndexWriterConfig(Lucene.Net.Util.LuceneVersion.LUCENE_48, analyzer));
+            _directory = new RAMDirectory();
+            _analyzer = new StandardAnalyzer(Lucene.Net.Util.LuceneVersion.LUCENE_48);
+            _indexWriter = new IndexWriter(_directory, new IndexWriterConfig(Lucene.Net.Util.LuceneVersion.LUCENE_48, _analyzer));
             _indexWriter.Commit(); // allows create segments files
-            _searcherManager = new SearcherManager(directory, new SearcherFactory());
+            _searcherManager = new SearcherManager(_directory, new SearcherFactory());
         }
 
         public void AddWord(string word)
@@ -54,6 +57,14 @@ namespace WildcardSearcher.Services
                     _searcherManager.Release(indexSearcher);
                 }
             }
+        }
+
+        public void Dispose()
+        {
+            _searcherManager.Dispose();
+            _indexWriter.Dispose();
+            _analyzer.Dispose();
+            _directory.Dispose();
         }
     }
 }

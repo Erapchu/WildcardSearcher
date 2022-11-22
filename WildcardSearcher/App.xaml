@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:WildcardSearcher"
     Startup="Application_Startup"
-    ShutdownMode="OnLastWindowClose">
+    ShutdownMode="OnLastWindowClose"
+    Exit="Application_Exit">
     <Application.Resources />
 </Application>

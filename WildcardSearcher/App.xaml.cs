@@ -12,14 +12,15 @@ namespace WildcardSearcher
     /// </summary>
     public partial class App : Application
     {
-        public IServiceProvider Services { get; }
+        private readonly ServiceProvider _serviceProvider;
+        public IServiceProvider Services => _serviceProvider;
 
         public App()
         {
-            Services = ConfigureServices();
+            _serviceProvider = ConfigureServices();
         }
 
-        private static IServiceProvider ConfigureServices()
+        private static ServiceProvider ConfigureServices()
         {
             var services = new ServiceCollection();
 
@@ -38,6 +39,11 @@ namespace WildcardSearcher
 
             var mainWindow = Services.GetService<MainWindow>();
             mainWindow.Show();
+        }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            _serviceProvider.Dispose();
         }
     }
 }
