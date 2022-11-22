@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -18,7 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WildcardSearcher\WildcardSearcher.WPF.csproj" />
+    <ProjectReference Include="..\WildcardSearcher.Common\WildcardSearcher.Common.csproj" />
+    <ProjectReference Include="..\WildcardSearcher.Lucene\WildcardSearcher.Lucene.csproj" />
   </ItemGroup>
 
 </Project>
