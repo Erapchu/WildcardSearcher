@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace WildcardSearcher.Interfaces
+﻿namespace WildcardSearcher.Common.Interfaces
 {
     public interface IWildcardSearcher
     {
