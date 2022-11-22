@@ -1,6 +1,6 @@
 ﻿using Lucene.Net.Documents;
 
-namespace WildcardSearcher.Wrappers
+namespace WildcardSearcher.Lucene.Wrappers
 {
     internal class LuceneDocument
     {

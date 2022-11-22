@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using WildcardSearcher.Common.Interfaces;
-using WildcardSearcher.Extensions;
+using WildcardSearcher.Lucene.Extensions;
 
 namespace WildcardSearcher.Tests
 {

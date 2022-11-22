@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
-using WildcardSearcher.Extensions;
+using WildcardSearcher.Lucene.Extensions;
 using WildcardSearcher.ViewModels;
 using WildcardSearcher.Views;
 

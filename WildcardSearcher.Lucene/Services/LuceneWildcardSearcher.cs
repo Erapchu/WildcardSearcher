@@ -7,9 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using WildcardSearcher.Common.Interfaces;
-using WildcardSearcher.Wrappers;
+using WildcardSearcher.Lucene.Wrappers;
 
-namespace WildcardSearcher.Services
+namespace WildcardSearcher.Lucene.Services
 {
     internal class LuceneWildcardSearcher : IWildcardSearcher, IDisposable
     {
@@ -22,8 +22,8 @@ namespace WildcardSearcher.Services
         public LuceneWildcardSearcher()
         {
             _directory = new RAMDirectory();
-            _analyzer = new StandardAnalyzer(Lucene.Net.Util.LuceneVersion.LUCENE_48);
-            _indexWriter = new IndexWriter(_directory, new IndexWriterConfig(Lucene.Net.Util.LuceneVersion.LUCENE_48, _analyzer));
+            _analyzer = new StandardAnalyzer(global::Lucene.Net.Util.LuceneVersion.LUCENE_48);
+            _indexWriter = new IndexWriter(_directory, new IndexWriterConfig(global::Lucene.Net.Util.LuceneVersion.LUCENE_48, _analyzer));
             _indexWriter.Commit(); // allows create segments files
             _searcherManager = new SearcherManager(_directory, new SearcherFactory());
         }

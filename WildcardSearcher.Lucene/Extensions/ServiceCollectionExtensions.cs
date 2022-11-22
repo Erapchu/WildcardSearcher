@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using WildcardSearcher.Common.Interfaces;
-using WildcardSearcher.Services;
+using WildcardSearcher.Lucene.Services;
 
-namespace WildcardSearcher.Extensions
+namespace WildcardSearcher.Lucene.Extensions
 {
     public static class ServiceCollectionExtensions
     {
